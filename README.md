@@ -1,2 +1,2 @@
 # DiscordOuija
-yee
+Oui oui ouija
