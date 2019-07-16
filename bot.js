@@ -1,5 +1,4 @@
 const Discord = require('discord.io');
-const auth = require('./auth.json');
 
 /*
 Add bot:
