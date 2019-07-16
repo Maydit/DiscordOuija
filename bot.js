@@ -112,7 +112,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
         });
         return;
     }
-    if(message.indexOf("!ouijabotversion") != -1) {
+    if(message.indexOf("!ouijaversion") != -1) {
         bot.sendMessage({
             to: channelID,
             message: "Latest change: added version checking."
