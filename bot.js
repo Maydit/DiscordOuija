@@ -97,7 +97,6 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
                 channelID: channelID,
                 messageID: evt.d.id,
             });
-            prevuser = prevuser2;
             return;
         } else {
             return;
@@ -113,7 +112,6 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
     }
 });
 
-let prevuser2 = 0;
 let prevuser = 0;
 function validate(user, message) {
     //no spaces (if no punct)
@@ -121,7 +119,6 @@ function validate(user, message) {
     if(user == prevuser) { //doubleposting
         return -1;
     }
-    prevuser2 = prevuser;
     prevuser = user;
     const spaceloc = message.indexOf(' ');
     if(spaceloc != -1) { //no spaces
