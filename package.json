@@ -1,0 +1,22 @@
+{
+    "name": "ouijabot",
+    "version": "1.0.0",
+    "description": "!ouijabot",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Maydit/OuijaBot"
+    },
+    "license": "MIT",
+    "main": "main.js",
+    "author": "Maydit",
+    "scripts": {
+        "dev": "nodemon main.js",
+        "start": "node main.js"
+    },
+    "dependencies": {
+        "discord.io": "github:woor/discord.io#gateway_v6"
+    },
+    "devDependencies": {
+        "nodemon": "^1.18.10"
+    }
+}
