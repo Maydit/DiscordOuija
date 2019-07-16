@@ -7,7 +7,8 @@ https://discordapp.com/oauth2/authorize?&client_id=600467162485751819&scope=bot&
 
 const punctuation = ['.', '!', '?'];
 const contpunct = [',', '"', "'", ')', '}', ']'];
-const ouijachannels = ["599311652785225760", "599713645588512778"];
+const ouijachannels = ["599311652785225760"];
+const pinnedMsgLimit = 40;
 
 var expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
 var regex = new RegExp(expression);
@@ -39,6 +40,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
                 channelID: channelID,
                 messageID: evt.d.id,
             });
+            addAllReactions(['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'], channelID, evt.d.id);
             lastpunctID = evt.d.id;
             if(message.length == 0) {
                 bot.deleteMessage({
@@ -186,4 +188,20 @@ function construct(arr) {
         }
     }
     return sent;
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function addAllReactions(reactions, cID, mID) {
+    for(let i = 0; i < reactions.length; ++i) {
+        //console.log(`Attempting to add reaction: ${reactions[i]}`);
+        bot.addReaction({
+            channelID: cID,
+            messageID: mID,
+            reaction: reactions[i]
+        });
+        if(i !== reactions.length - 1) await sleep(1000);
+    }
 }
