@@ -17,11 +17,11 @@ let lastpunctID = 0;
 
 const bot = new Discord.Client({
     autorun: true,
-    token: auth.token
+    token: process.env.BOT_TOKEN
 });
 
 bot.on('ready', function(event) {
-    console.log('Logged in as %s - %s\n', bot.username, bot.id);
+    //console.log('Logged in as %s - %s\n', bot.username, bot.id);
 });
 
 bot.setPresence({
@@ -46,17 +46,17 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
                 });
             }
         }
-        console.log("Bot posted in channel!, %s, %s", message, message.length);
+        //console.log("Bot posted in channel!, %s, %s", message, message.length);
         return;
     }
     if(ouijachannels.includes(channelID)) {
-        console.log("read a message in a ouija channel: %s", message);
+        //console.log("read a message in a ouija channel: %s", message);
         if(lastpunctID == 0) {
             lastpunctID = evt.d.id;
         }
         //links
         if(message.match(regex)) {
-            console.log("matched link regex");
+            //console.log("matched link regex");
             bot.deleteMessage({
                 channelID: channelID,
                 messageID: evt.d.id,
@@ -66,7 +66,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
         //
         let resp = validate(userID, message);
         if(resp === 0) { //punctated
-            console.log("message was punctuation. printing full message:");
+            //console.log("message was punctuation. printing full message:");
             //if punctuation we post a message in the ouija channel with a pin
             //get history
             bot.getMessages({
@@ -81,7 +81,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
                 }
                 //construct message
                 sentence = construct(messagearray);
-                console.log(sentence);
+                //console.log(sentence);
                 //post
                 bot.sendMessage({
                     to: channelID,
@@ -90,7 +90,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
             });
             return;
         } else if(resp === -1) { //invalid
-            console.log("invalid message, deleted");
+            //console.log("invalid message, deleted");
             //delete message
             bot.deleteMessage({
                 channelID: channelID,
@@ -127,7 +127,7 @@ function validate(user, message) {
         return validsoftpunc(message, contpunct);
     }
     let punctstat = onlycontains(message, punctuation);
-    console.log("does it contain punctuation?: %s", punctstat);
+    //console.log("does it contain punctuation?: %s", punctstat);
     if(punctstat === 1) {
         return 0;
     } else if(punctstat === -1) {
