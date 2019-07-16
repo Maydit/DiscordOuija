@@ -15,13 +15,15 @@ var regex = new RegExp(expression);
 
 let lastpunctID = 0;
 
+console.log("test");
+
 const bot = new Discord.Client({
     autorun: true,
     token: process.env.BOT_TOKEN
 });
 
 bot.on('ready', function(event) {
-    //console.log('Logged in as %s - %s\n', bot.username, bot.id);
+    console.log('Logged in as %s - %s\n', bot.username, bot.id);
 });
 
 bot.setPresence({
