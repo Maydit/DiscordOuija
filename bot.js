@@ -115,7 +115,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
     if(message.indexOf("!ouijaversion") != -1) {
         bot.sendMessage({
             to: channelID,
-            message: "Latest change: try to fix reacts."
+            message: "Latest change: remove reacts =(."
         });
         return;
     }
