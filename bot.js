@@ -40,7 +40,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
                 channelID: channelID,
                 messageID: evt.d.id,
             });
-            addAllReactions(['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'], channelID, evt.d.id);
+            addAllReactions(["one","two","three","four","five","six","seven","eight","nine","keycap_ten"] channelID, evt.d.id);
             lastpunctID = evt.d.id;
             if(message.length == 0) {
                 bot.deleteMessage({
@@ -115,7 +115,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
     if(message.indexOf("!ouijaversion") != -1) {
         bot.sendMessage({
             to: channelID,
-            message: "Latest change: added version checking."
+            message: "Latest change: try to fix reacts."
         });
         return;
     }
