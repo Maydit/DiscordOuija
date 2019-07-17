@@ -40,7 +40,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
                 channelID: channelID,
                 messageID: evt.d.id,
             });
-            addAllReactions(["one","two","three","four","five","six","seven","eight","nine","keycap_ten"], channelID, evt.d.id);
+            //addAllReactions(["one","two","three","four","five","six","seven","eight","nine","keycap_ten"], channelID, evt.d.id);
             lastpunctID = evt.d.id;
             if(message.length == 0) {
                 bot.deleteMessage({
