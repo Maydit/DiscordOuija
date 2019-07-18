@@ -36,11 +36,11 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
     //console.log(channelID);
     if(userID == bot.id) {
         if(ouijachannels.includes(channelID)) {
-            bot.pinMessage({
+            /*bot.pinMessage({
                 channelID: channelID,
                 messageID: evt.d.id,
-            });
-            //addAllReactions(["one","two","three","four","five","six","seven","eight","nine","keycap_ten"], channelID, evt.d.id);
+            });*/
+            addAllReactions(["👍","😑","👎"], channelID, evt.d.id);
             lastpunctID = evt.d.id;
             if(message.length == 0) {
                 bot.deleteMessage({
@@ -115,7 +115,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
     if(message.indexOf("!ouijaversion") != -1) {
         bot.sendMessage({
             to: channelID,
-            message: "Latest change: remove reacts =(."
+            message: "Latest change: remove pinning."
         });
         return;
     }
