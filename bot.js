@@ -6,7 +6,7 @@ https://discordapp.com/oauth2/authorize?&client_id=600467162485751819&scope=bot&
 */
 
 const punctuation = ['.', '!', '?'];
-const contpunct = [',', '"', "'", ')', '}', ']'];
+const contpunct = [',', '"', "'", ')', '}', ']', ';', ':'];
 const ouijachannels = ["599311652785225760"];
 const pinnedMsgLimit = 40;
 
@@ -115,7 +115,7 @@ bot.on('message', async function(user, userID, channelID, message, evt) {
     if(message.indexOf("!ouijaversion") != -1) {
         bot.sendMessage({
             to: channelID,
-            message: "Latest change: remove pinning."
+            message: "Latest change: add more nonterminal punctuation."
         });
         return;
     }
